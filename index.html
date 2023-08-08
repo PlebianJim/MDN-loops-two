@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Loops: Task 2</title>
+    <style>
+        p {
+            color: purple;
+            margin: 0.5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="preview">
+        <form action="">Enter a name to search:</form>
+        <input type="text">
+        <button onclick="findName()">Go</button>
+        <p></p>
+    </section>
+
+</body>
+<script>
+    const searchInput = document.querySelector('input')
+    const para = document.createElement('p');
+    document.body.appendChild(para);
+
+    const phonebook = [
+        { name: 'Chris', number: '1549' },
+        { name: 'Li Kang', number: '9634' },
+        { name: 'Anne', number: '9065' },
+        { name: 'Francesca', number: '3001' },
+        { name: 'Mustafa', number: '6888' },
+        { name: 'Tina', number: '4312' },
+        { name: 'Bert', number: '7780' },
+        { name: 'Jada', number: '2282' },
+    ]
+
+    // Add your code here
+    function findName() {
+        const name = searchInput.value;
+        for (let i = 0; i < phonebook.length; i++) {
+            const entry = phonebook[i];
+            if (entry.name === name) {
+                para.textContent = `${entry.name}:${entry.number}`;
+                break;
+            } else {
+                para.textContent = "Name Not Found..."
+            }
+        }
+    }
+
+
+    // Don't edit the code below here!
+    const section = document.querySelector('section');
+    section.appendChild(para);
+</script>
+
+</html>
